@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lab 1</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -10,22 +11,18 @@
 
     <p>Learned HTML. I know basic tags like headers, paragraphs, links, and forms, as well as tables and semantic structure.</p>
 
-    <div>
-        <input type="text" placeholder="Search...">
-        <button>Search</button>
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button id="searchBtn">Search</button>
     </div>
 
-    <br>
-
-    <div>
-        <button>Click Me</button>
-        <button>Submit</button>
-        <button>Reset</button>
+    <div class="controls">
+        <button id="clickBtn">Click Me</button>
+        <button id="submitBtn">Submit</button>
+        <button id="resetBtn">Reset</button>
     </div>
 
-    <br>
-
-    <table border="1">
+    <table>
         <tr>
             <th>Topic</th>
             <th>Level</th>
@@ -35,6 +32,10 @@
             <td>Good</td>
         </tr>
     </table>
+
+    <p id="status"></p>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
