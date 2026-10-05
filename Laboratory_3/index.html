@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Piatra, Hârtia, Foarfeca</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    button {
+      padding: 8px 14px;
+      margin: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #result {
+      font-weight: bold;
+      font-size: 20px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Piatra, Hârtia, Foarfeca</h1>
+
+  <div>
+    <button id="btn-piatra">Piatra</button>
+    <button id="btn-hartia">Hârtia</button>
+    <button id="btn-foarfeca">Foarfeca</button>
+  </div>
+
+  <p>Alegerea ta: <span id="player-choice">-</span></p>
+  <p>Alegerea calculatorului: <span id="computer-choice">-</span></p>
+
+  <p id="result">Alege o variantă pentru a începe!</p>
+
+  <p id="score">Scor: Tu 0 | Calculator 0 | Egalități 0</p>
+  <p id="rounds">Runde jucate: 0</p>
+  <p id="leader"></p>
+
+  <button id="btn-reset">Joc nou</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
