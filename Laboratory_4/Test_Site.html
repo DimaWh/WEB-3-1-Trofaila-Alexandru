@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>if you enter this test site please know youre gonna have constant dissapointments thank you</title>
+</head>
+<body>
+
+  <h1>console</h1>
+  <script>
+    let Isle_Mercs = ["Ghost", "Specialist", "Commander", "Pyro", "Sniper"];
+
+    console.log(Isle_Mercs);
+    console.log(Isle_Mercs[0]);
+    console.log(Isle_Mercs[Isle_Mercs.length - 1]);
+    console.log(Isle_Mercs.length);
+  </script>
+
+  <hr>
+
+  <h1>console</h1>
+  <script>
+    let Isle_Locations = ["Generator", "Laboratory", "ShipWreck"];
+
+    Isle_Locations.push("WatchTower")
+    Isle_Locations.unshift("Airfield");
+    Isle_Locations.pop();
+    Isle_Locations.shift();
+
+    console.log(Isle_Locations);
+  </script>
+
+  <hr>
+
+  <h1>Shopping List</h1>
+
+  <input type="text" id="Product_Input" placeholder="Insert A Product">
+  <button onclick="Add_Last()">Add Last</button>
+  <button onclick="Add_First()">Add First</button>
+
+  <p id="list"></p>
+
+  <script>
+    let products = ["Bread", "Milk", "Eggs"];
+
+    function Show_List() {
+      let zone = document.getElementById("list");
+
+      let text = "";
+      products.forEach(function (product) {
+        text = text + product + " | ";
+      });
+      zone.innerHTML = text;
+    }
+
+    function Add_Last() {
+      let field = document.getElementById("Product_Input");
+      let product = field.value;
+      if (product !== "") {
+        products.push(product);
+        field.value = "";
+      }
+      Show_List();
+    }
+
+    function Add_First() {
+      let field = document.getElementById("Product_Input");
+      let product = field.value;
+      if (product !== "") {
+        products.unshift(product);
+        field.value = "";
+      }
+      Show_List();
+    }
+
+    Show_List();
+  </script>
+
+  <hr>
+
+  <h1>Shopping List (delete)</h1>
+
+  <input type="text" id="Product_Input4" placeholder="Insert A Product">
+  <button onclick="Add_Last4()">Add Last</button>
+  <button onclick="Add_First4()">Add First</button>
+  <button onclick="Del_First4()">Delete First</button>
+  <button onclick="Del_Last4()">Delete Last</button>
+
+  <p id="list4"></p>
+
+  <script>
+    let products4 = ["Bread", "Milk", "Eggs"];
+
+    function Show_List4() {
+      let zone = document.getElementById("list4");
+
+      if (products4.length === 0) {
+        zone.innerHTML = "The List Is EMPTY";
+        return;
+      }
+
+      let text = "";
+      products4.forEach(function (product) {
+        text = text + product + " | ";
+      });
+      zone.innerHTML = text;
+    }
+
+    function Add_Last4() {
+      let field = document.getElementById("Product_Input4");
+      let product = field.value;
+      if (product !== "") {
+        products4.push(product);
+        field.value = "";
+      }
+      Show_List4();
+    }
+
+    function Add_First4() {
+      let field = document.getElementById("Product_Input4");
+      let product = field.value;
+      if (product !== "") {
+        products4.unshift(product);
+        field.value = "";
+      }
+      Show_List4();
+    }
+
+    function Del_First4() {
+      products4.shift();
+      Show_List4();
+    }
+
+    function Del_Last4() {
+      products4.pop();
+      Show_List4();
+    }
+
+    Show_List4();
+  </script>
+
+  <hr>
+
+  <h1>Electronic Catalog</h1>
+
+  <p id="number"></p>
+  <div id="catalog"></div>
+
+  <h2>Add Child</h2>
+  Name: <input type="text" id="NameInput"><br>
+  Age: <input type="number" id="AgeInput"><br>
+  Grade: <input type="number" id="GradeInput"><br>
+  <button onclick="Add_Child()">Add Child</button>
+
+  <h2>Delete Child</h2>
+  Child's name: <input type="text" id="DeleteInput">
+  <button onclick="Delete_Child()">Delete Child</button>
+
+  <h2>Search Child</h2>
+  Search child: <input type="text" id="SearchInput">
+  <button onclick="Search_Child()">Search</button>
+  <p id="result"></p>
+
+  <script>
+    let Children = [
+      { Name: "Cristi Popescu(Hacker/DepanatorPc)", Age: 30, Grade: 10 },
+      { Name: "Alexandru Trofaila", Age: 10, Grade: 10 },
+      { Name: "John Doe", Age: 32, Grade: 1 }
+    ];
+
+    function Show_Children() {
+      let zoneNumber = document.getElementById("number");
+      let zoneCatalog = document.getElementById("catalog");
+
+      zoneNumber.innerHTML = "Number of children: " + Children.length;
+
+      let text = "";
+      Children.forEach(function (Child, index) {
+        text = text + (index + 1) + ". " + Child.Name + "<br>";
+        text = text + "Age: " + Child.Age + "<br>";
+        text = text + "Grade: " + Child.Grade + "<br><br>";
+      });
+      zoneCatalog.innerHTML = text;
+    }
+
+    function Add_Child() {
+      let Name = document.getElementById("NameInput").value;
+      let Age = Number(document.getElementById("AgeInput").value);
+      let Grade = Number(document.getElementById("GradeInput").value);
+
+      if (Name === "") {
+        return;
+      }
+
+      let Child_New = {
+        Name: Name,
+        Age: Age,
+        Grade: Grade
+      };
+
+      Children.push(Child_New);
+
+      document.getElementById("NameInput").value = "";
+      document.getElementById("AgeInput").value = "";
+      document.getElementById("GradeInput").value = "";
+
+      Show_Children();
+    }
+
+    function Delete_Child() {
+      let nameToDelete = document.getElementById("DeleteInput").value;
+      let zoneResult = document.getElementById("result");
+
+      let found = Children.find(function (Child) {
+        return Child.Name === nameToDelete;
+      });
+
+      if (found === undefined) {
+        zoneResult.innerHTML = "Child not found, nothing deleted!";
+        return;
+      }
+
+      let position = Children.indexOf(found);
+      Children.splice(position, 1);
+
+      document.getElementById("DeleteInput").value = "";
+      zoneResult.innerHTML = "";
+      Show_Children();
+    }
+
+    function Search_Child() {
+      let nameToSearch = document.getElementById("SearchInput").value;
+      let zoneResult = document.getElementById("result");
+
+      let found = Children.find(function (Child) {
+        return Child.Name === nameToSearch;
+      });
+
+      if (found === undefined) {
+        zoneResult.innerHTML = "Child not found!";
+      } else {
+        zoneResult.innerHTML = "Child found!<br>" +
+          "Name: " + found.Name + "<br>" +
+          "Age: " + found.Age + "<br>" +
+          "Grade: " + found.Grade;
+      }
+    }
+
+    Show_Children();
+  </script>
+
+</body>
+</html>
