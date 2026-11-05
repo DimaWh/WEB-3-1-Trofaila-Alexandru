@@ -1,17 +1,60 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>List of people idk bro or students same thing like gah dayum</title>
+  <title>Students List</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Edit The Tungs</h1>
   <p>Number of Random Tungs... <span id="count">0</span></p>
 
+  <form id="student-form">
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="group" placeholder="Group (e.g. SI-231)">
+    <input type="text" id="age" placeholder="Age">
+    <input type="text" id="specialty" placeholder="Specialty">
+    <input type="text" id="image" placeholder="Image URL">
+    <button type="submit">Add Tung</button>
+    <p id="error"></p>
+  </form>
+
+  <div class="controls">
+    <div>
+      <strong>justify-content:</strong>
+      <button data-prop="justifyContent" data-value="flex-start">flex-start</button>
+      <button data-prop="justifyContent" data-value="center">center</button>
+      <button data-prop="justifyContent" data-value="flex-end">flex-end</button>
+      <button data-prop="justifyContent" data-value="space-between">space-between</button>
+      <button data-prop="justifyContent" data-value="space-around">space-around</button>
+      <button data-prop="justifyContent" data-value="space-evenly">space-evenly</button>
+    </div>
+
+    <div>
+      <strong>align-items:</strong>
+      <button data-prop="alignItems" data-value="stretch">stretch</button>
+      <button data-prop="alignItems" data-value="flex-start">flex-start</button>
+      <button data-prop="alignItems" data-value="center">center</button>
+      <button data-prop="alignItems" data-value="flex-end">flex-end</button>
+      <button data-prop="alignItems" data-value="baseline">baseline</button>
+    </div>
+
+    <div>
+      <strong>flex-wrap:</strong>
+      <button data-prop="flexWrap" data-value="wrap">wrap</button>
+      <button data-prop="flexWrap" data-value="nowrap">nowrap</button>
+    </div>
+
+    <div>
+      <strong>gap:</strong>
+      <input type="range" id="gap-range" min="0" max="100" value="16">
+      <span id="gap-value">16px</span>
+    </div>
+  </div>
+
   <div id="students-list" class="students-list"></div>
 
   <script src="script.js"></script>
 </body>
-</html> // so i did everything i was supposed to probably my 4th try, verything works fine im confused on the arraning the cards based on how to yk do the things bro idk man im fried
+</html>
